@@ -80,32 +80,46 @@ Như vậy, dù website thuộc thể loại nào, giao tiếp với ngôn ngữ
 >
 > - *Website động(dynamic web)* - Là một website sẽ giao tiế với một máy chủ để gửi nhận dữ liệu, các dữ liệu đó sẽ gửi ra ngoài cho người dùng bằng avwn bản HTML và trình duyệt sẽ hiển thị nó. Để một website có thể giao tiếp với máy chủ web thì sẽ dùng một số ngôn ngữ lập trifng dạng server side như PHP, ASP.NET, Ruby,... để thực hiện. Ví dụ như một website làm bằng WordPress là một website động.
 
+####2. Soạn thảo HTML đầu tiên<a name="2"></a>
+
+>Soạn thảo văn bản HTML ở đây nghĩa là chúng ta sẽ tập viết một đoạn văn bản được định dạng bằng các thẻ HTML chứ không phải là tạo ra một tập tin HTML hoàn chỉnh.
+
+Để soạn thảo văn bản, đầu tiên bạn mở chương trình soạn thảo lên (Sublime Text 3) và gõ một đoạn nội dung đơn giản.
+
+<img src="http://i.imgur.com/r6zOD7P.png">
+
+<img src="">
+
+Sau đó hãy lưu lại tập tin này với tên text.html và mở lên bằng trình duyệt, kết quả sẽ như thế này:
+
+<img src ="">
+
+Chúng ta có thể thấy rằng văn bản chúng ta soạn ra có xuống hàng đầy đủ mà khi in ra trình duyệt nó không xuống hàng, bởi vì các trình duyệt chỉ đọc hiểu các văn bản được định dạng bằng HTML, nên cho dù bạn soạn văn bản thông thường mà không có HTML thì trình duyệt vẫn sẽ hiểu rằng đó là một văn bản thô.
+
+Bây giờ, chúng ta thử đặt cặp thẻ `<h1></h1>` để thiết lập tiêu đề cho văn bản, và đặt các văn bản nhỏ vào cặp thẻ `<p></p>` như thế này.
+
+<img src="">
+
+Lưu lại và tải lại bằng trình duyệt website sẽ thấy một kết quả khác.
+
+<img src="">
+
+Ngoài thẻ `<h1></h1>`, chúng ta còn có các thẻ khác theo size giảm dần như:
+
+```sh
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+```
+
+####3. Tạo tài liệu web HTML<a name="3"></a>
 
 
 
-**Các thẻ cơ bản trong HTML
 
-HTML sẽ được khai báo bằng các phân tử bởi các từ khóa. Nội dung nằm bên trong cặp từ khóa sẽ là nội dung bạn cần định dạng với HTML. Ví dụ dưới đây là một đoạn HTML khai báo một đoạn văn bản.
 
-`<p>Đây là một đoạn văn bản trong HTML.</p>`
-
-**In đậm**
-
-Chúng ta sử dụng thẻ sau:
-
-`<strong>đoạn in đậm</strong>`
-
-Kết quả là: **đoạn in đậm**
-
-**In nghiêng**
-
-Chúng ta sử dụng thẻ sau:
-
-`<p>đoạn in nghiêng</p>`
-
-Kết quả là: *đoạn in nghiêng*
-
-Ngoài ra, trong các thẻ còn có các thuộc tính, và các thuộc tính luôn luôn có giá trị. Trong một thẻ có thẻ có nhiều thuộc tính.
 
 
 
