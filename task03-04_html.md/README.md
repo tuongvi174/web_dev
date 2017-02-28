@@ -9,6 +9,7 @@
 >Ngày cập nhật: 01/03/2017
 >
 ----------------------------------
+
 ##Mục lục:
 
 [1. HTML là gì? Vai trò của HTML](#1)
@@ -235,7 +236,7 @@ Thẻ `<h1>` sẽ có kích thước lớn nhất và `<h6>` sẽ có kích thư
 
  <img src="http://i.imgur.com/8Ml1P7e.png">
 
- **Thẻ trích dẫn**
+**Thẻ trích dẫn**
 
  Trích dẫn (Quote) là một thẻ có thể bạn sẽ thường sử dụng nếu thường xuyên viết báo cáo hay phóng sự, mục đích của nó là định dạng một câu nói như một câu trích dẫn và có thể định dạng thêm tên người trích dẫn một cách chuyên nghiệp hơn, thẻ trích dẫn được quy định là `<quote>` và tên tác giả trích dẫn được quy định là `<cite>`
 
@@ -243,11 +244,80 @@ Thẻ `<h1>` sẽ có kích thước lớn nhất và `<h6>` sẽ có kích thư
 
  <img src="http://i.imgur.com/j5p1qfY.png">
 
- **Thẻ định dạng sẵn**
+**Thẻ định dạng sẵn**
 
   Trong HTML hiện tại nó có một thẻ được gọi là thẻ định dạng sẵn (preformatted), thẻ này sẽ được viết là `<pre></pre>`. Sỡ dĩ nó được gọi là thẻ định dạng sẵn vì mặc định trình duyệt đã tự động định dạng cho các nội dung nằm bên trong thẻ đó như kích thước chữ, khaorng cách, kiểu chữ.
 
   Thẻ `<pre></pre>` thường được dùng để đăng một câu đối thoại hoặc in một đoạn mã để cho dễ phân biệt với các văn bản thông thường.
+
+  <img src="http://i.imgur.com/n14GgNM.png">
+
+  <img src="http://i.imgur.com/BpsjSWV.png">
+
+**Thuộc tính style để định dạng chữ viết**
+
+  Mặc dù việc lên màu sắc trên website là do CSS đảm nhận, nhưng nếu là một văn abrn HTML thông thường thì bạn vẫn có thể thêm màu sắc cho chữ viết bằng thuộc tính `style`. Thuộc tính `style` có thể đặt trong bất cứ thẻ nào và giá trị của thuộc tính đó là các thuộc tính của CSS.
+
+  Cấu trúc viết thuộc tính sẽ là:
+
+  ```sh
+  <tên thẻ style="tên thuộc tính: giá trị">
+  ```
+
+**Màu chữ**
+Để thiết lập màu chữ, bạn có thể sử dụng thuộc tính `color`. Giá trị của nó là tên màu trong tiếng anh hoặc [mã màu HEX](http://vforum.vn/diendan/showthread.php?61619-Bang-ma-mau-HEX-RGB-CMYK-day-du-cho-CSS-HTML)
+
+```sh
+<span style="color: red">chữ màu đỏ</span>
+```
+
+**Màu nền**
+
+Màu nền có cách thiết lập giống màu chữ, tức là bạn có thể dùng giá trị của màu trong tiếng anh hoặc [mã màu HEX](http://vforum.vn/diendan/showthread.php?61619-Bang-ma-mau-HEX-RGB-CMYK-day-du-cho-CSS-HTML). Tên thuộc tính của màu nền là `background-color`
+
+```sh
+<span style="color: white; background-color:red">chữ trắng nền đỏ</span>
+```
+
+<img src="http://i.imgur.com/9rZjJh6.png">
+
+<img src="http://i.imgur.com/TIEaVSe.png">
+
+**Kích thước chữ**
+
+Bạn có thể sử dụng thuộc tính `font-size` và giá trị là số kèm đơn vị. Bạn có thể sử dụng đơn vị `px`,`%`,`pt` hoặc `em` thùy thích, đơn giản nhất là dùng `px`
+
+```sh
+<span style="font-size: 32px">chữ có kích thước 32px</span>
+```
+
+**Font chữ**
+
+Nếu bạn muốn sử dụng font chữ khác so với font chữ mặc định thì hãy dùng thuộc tính `font-family` với giá trị là tên font chữ có trên máy tính. Một số tên font chữ phổ biến nhất là Arial, Helvetica, Time New Roman, Verdana.
+
+```sh
+<span style="font-family: Arial">Font chữ Arial</span>
+```
+
+Ngoài ra bạn có thể thêm font chữ dự phòng băng cách khai báo nhiều tên font chữ khác nhau được ngăn cách bởi dấu phẩy.
+
+```sh
+<span style="font-family: Helvetica, Arial">Font chữ Arial</span>
+```
+
+Có nghĩa là nếu máy người đọc không có font chữ Helvetica thì nó sẽ sử dụng font chữ Arial.
+
+**Căn lề văn bản**
+
+Để căn lề, chúng ta sử dụng thuộc tính `text-align` với giá trị là `lefft`,`center`,`right` hoặc `justify`.
+
+```sh
+span style="text-align: center">Canh giữa văn bản</span>
+```
+
+
+
+
 
 
 
