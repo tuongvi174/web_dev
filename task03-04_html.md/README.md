@@ -315,6 +315,66 @@ Có nghĩa là nếu máy người đọc không có font chữ Helvetica thì n
 span style="text-align: center">Canh giữa văn bản</span>
 ```
 
+####6. Ba thẻ tạo danh sách trong HTML<a name="6"></a>
+
+Phần tử danh sách (list) được sử dụng rất thường xuyên trong một tài liệu web bằng HTML. Trong một trang web thường người ta sử dụng các phần tử danh sach rất nhiều, chẳng hạn như menu, danh sách thông tin nào đó,...đều được tạo ra bởi các thẻ tạo danh sách trong HTML.
+
+Trong HTML có ba kiểu danh sách (list type) đó là kiểu sắp xếp (ordered list), kiểu không sắp xếp (unordered list) và kiểu danh sách mô tả (description list).
+
+**Ordered List**
+
+Để khai báo một danh sách với kiểu được sắp xếp, bạn phải bắt đầu bằng cặp thẻ `<ol></ol>`. Bên trong cặp thẻ này sẽ là danh sách như các mục con, mỗi mục sẽ đặt trong cặp thẻ `<li></li>`.
+
+<img src="http://i.imgur.com/hQkV83L.png">
+
+<img src="http://i.imgur.com/13lvPcq.png">
+
+Thẻ `<ol>` cũng hỗ trợ thêm một thuộc tính nữa tên là `type`, thuộc tính này để bạn thiết lập kiểu sắp xếp các mục con bên trong danh sách. Giá trị của thuộc tính type là `1`,`i`,`I`,`a`,`A`.
+
+**Unordered List**
+
+Giống như Ordered List, kiểu danh sách Unordered List sẽ bắt đầu bằng cặp thẻ `<ul></ul>` và bên trong nó các mục con sẽ được khai báo băng cặp thẻ `<li></li>`.
+
+<img src="http://i.imgur.com/qmDBYoU.png">
+
+<img src="http://i.imgur.com/X8rJZeh.png">
+
+Bạn cũng có thể thay đổi kiểu hiện thị của thẻ `<ol>` bằng cách thêm thuộc tính style với thuộc tính CSS là `list-style-type` và giá trị là `disc`,`square`,`circle`,`none`.
+
+**Description List**
+
+Với kiểu danh sách này thì cách viết hơi khác một tý, đó là nó sẽ bắt đầu danh sách băng cặp thẻ `<dl></dl>`, trong đó tên mỗi mục con sẽ được khai báo bằng cặp thẻ `<dl></dl>` và mô tả cho mục con sẽ được khai báo bằng cặp thẻ `<dd></dd>`.
+
+<img src="http://i.imgur.com/OjjUbcd.png">
+
+<img src="http://i.imgur.com/2Bjipud.png">
+
+####7. Thẻ tạo liên kết<a name="7"></a>
+
+Một trong những nét đặc trưng của siêu văn bản là có những đường liên kết (link) tới một tài liệu khác thông qua địa chỉ đường dẫn đến tài liệu hoặc địa chỉ website. Để tạo ra các đường liên kết trong HTML ta sẽ sử dụng cặp thẻ `<a></a>`
+
+```sh
+<a href="http://thachpham.com" title="Thach Pham Blog" target="_blank">nhấp vào đây</a>
+```
+
+<img src="http://i.imgur.com/BkRNe8h.png">
+
+**Ý nghĩa các thuộc tính:
+
+ - `href`: Địa chỉ của tài liệu muốn liên kết đến, đây có thể là một đường dẫn thư mục hoặc địa chỉ website. Nếu bạn muốn truy cập một tài liệu trên cùng một cấp thư mục thì chỉ cần ghi tên_tập_tin.định_dạng
+ - `title`: Tiêu đề của liên kết, tiêu đề sẽ hiển thị như một thông tin thêm khi rê chuột vào liên kết.
+ - `target`: Xác định nơi ơở tài liệu, nó có các giá trị như `_blank` (mở tài liệu trên cửa sổ mới), `_self` (mở tài liệu trên cửa sổ hiện tại, nếu bạn không khai báo thuộc tính `target` thì nó sẽ sử dụng giá trị này làm mặc định), `_top` (mở tài liệu trong nội dung trang hiện tại), `_parent` (mở tài liệu trên khung trình duyệt mẹ của nó).
+ 
+ **Liên kết neo (Anchor Link)**
+
+ Liên kết neo nghĩa là một liên kết trong siêu văn bản sẽ dẫn đến một vịt rí đặc biệt trong cùng tài liệu mà khôn gphari tải lại hoặc mở một tài liệu mới. Một liên kết neo sẽ có hai phần:
+
+  - Khu vực được neo, được khai báo rằng thẻ bất kỳ ơới thuộc tính id (ví dụ: `<p id="noi_dung" </p>`).
+  - Liên kết neo, được khai báo bằng thẻ `<a>` nhưng có thuộc tính là `href` nhưng giá trị là có dấu `#` và tên id khu vực cần truy cập đến (ví dụ: `<a href="#noi_dung">xem nội dung</a>`).
+
+<img src="">
+
+
 
 
 
