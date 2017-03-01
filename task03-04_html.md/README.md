@@ -3,7 +3,7 @@
 >Người thực hiện: Hồ Nguyễn Tường Vi
 >
 >Tên tài liệu:
- - [https://thachpham.com/web-development/html-css/html-la-gi-va-vi-sao-no-quan-trong.html](https://thachpham.com/web-development/html-css/html-la-gi-va-vi-sao-no-quan-trong.html)
+ - [https://thachpham.com](https://thachpham.com)
  - [https://www.youtube.com](https://www.youtube.com)
 >
 >Ngày cập nhật: 01/03/2017
@@ -367,17 +367,98 @@ Một trong những nét đặc trưng của siêu văn bản là có những đ
  
  **Liên kết neo (Anchor Link)**
 
- Liên kết neo nghĩa là một liên kết trong siêu văn bản sẽ dẫn đến một vịt rí đặc biệt trong cùng tài liệu mà khôn gphari tải lại hoặc mở một tài liệu mới. Một liên kết neo sẽ có hai phần:
+ Liên kết neo nghĩa là một liên kết trong siêu văn bản sẽ dẫn đến một vị trí đặc biệt trong cùng tài liệu mà không phải tải lại hoặc mở một tài liệu mới. Một liên kết neo sẽ có hai phần:
 
-  - Khu vực được neo, được khai báo rằng thẻ bất kỳ ơới thuộc tính id (ví dụ: `<p id="noi_dung" </p>`).
+  - Khu vực được neo, được khai báo rằng thẻ bất kỳ với thuộc tính id (ví dụ: `<p id="noi_dung" </p>`).
   - Liên kết neo, được khai báo bằng thẻ `<a>` nhưng có thuộc tính là `href` nhưng giá trị là có dấu `#` và tên id khu vực cần truy cập đến (ví dụ: `<a href="#noi_dung">xem nội dung</a>`).
 
-<img src="">
+<img src="http://i.imgur.com/QehKtQC.png">
 
+<img src="http://i.imgur.com/nGcO9CN.png">
 
+####8. Chèn hình ảnh, video, audio và website<a name="8"></a>
 
+Với HTMT chúng ta có thể dễ dàng chèn những loại tập tin kỹ thuật số vào tài liệu.
 
+**Chèn hình ảnh vào HTML**
 
+Để chèn hình ảnh vào HTML, chúng ta sử dụng thẻ `<img>` với các tham số bắt buộc, với thẻ này không có thẻ đóng.
+
+```sh
+<img src="Đường_link_ảnh" title="Tiêu_đề_ảnh" alt="Tên_định_danh_của_ảnh"
+```
+
+<img src="http://i.imgur.com/QoaiPdo.png">
+
+<img src="http://i.imgur.com/8ecJzSg.png">
+
+Ngoài ra chúng ta có thể sử dụng thêm thuộc tính `width` và `height` để điều chỉnh kích thước của ảnh.
+
+Nếu bạn muốn upload ảnh lên Internet để lấy link trực tiếp thì có thể dùng [Imgur](https://imgur.com/)
+
+**Chèn video**
+
+Mạc dù hiện tại chưa học đến HTML5 nhưng ở chức năng chèn video này chúng ta sẽ sử dụng một thẻ trong HTML để chèn video nhanh chóng đó là cặp thẻ `<video></video`:
+
+```sh
+<video width="kích_cỡ_ngang" height="kích_cỡ_dọc" controls>
+
+</video>
+```
+
+Trong cặp thẻ `<video></video>` sẽ có một thẻ `<source>` với các thuộc tính nhằm khai báo đường dẫn tập tin video và loại tập tin.
+
+Để có thể đảm bảo tất cả các trình duyệt có thể đọc được, chỉ nên chèn video định dạng MP4
+
+<img src="http://i.imgur.com/Vv2z9Ck.png">
+
+<img src="http://i.imgur.com/ldsRRm9.png">
+
+**Chèn âm thanh - nhạc**
+
+Giống như thẻ `<video>`, để chèn âm thanh vào tài liệu HTML thì bạn có thể sử dụng thẻ `<audio>` và thẻ này cũng là HTML5.
+
+<img src="http://i.imgur.com/UlcBmkQ.png">
+
+<img src="http://i.imgur.com/aeb0dBR.png">
+
+**Chèn đối tượng kỹ thuật với thẻ `<object>`**
+
+Ngoài các thẻ đặc trưng cho từng loại tập tin ở trên thì bạn còn có một cách khác để chèn các đối tượng kỹ thuật số vào tài liệu HTML đó là dùng thẻ `<object>`, đây là một thẻ có thể giúp bạn chèn các loại đối tượng kỹ thuật số như Flash, Java, Audio, PDF, ActiveX. Nhưng thông thường thì các loại mã nhúng của một số website cho phép sử dụng mã nhúng như Youtube họ sẽ dùng thẻ này để chèn đối tượng vào web.
+
+**Nhúng tài liệu HTML vào web**
+
+Nếu bạn có nhu cầu nhúng thẳng một trang nào đó vào tài liệu HTML của bạn thì có thể sử dụng thẻ `<iframe>` như sau:
+
+```sh
+<iframe src="đường_dẫn_web" width="kích_cỡ_ngang" height="kích_cỡ_dọc" scrolling="auto"></iframe>
+```
+
+Thuộc tính `src` là đường dẫn của trang bạn muốn nhúng vào, `width` và `height` là kích thước của khung hiển thị.
+
+Ngoài ra, còn một thuộc tính nữa để chèn một liên kết và ép nó mở bằng frame trên website đó là sử dụng thuộc tính `name` trong thẻ `<iframe>` và thuộc tính `target` trong thẻ `<a>`.
+
+```sh
+<p><a target="window" href="đường_dẫn_web_1">Truy cập</a></p>
+<iframe src="đường_dẫn_web_2" name="window" width="kích_cỡ_ngang" height="kích_cỡ_dọc"></iframe>
+```
+
+####9. Tạo form nhập liệu<a name="9"></a>
+
+Để tạo form, chúng ta sẽ sử dụng cặp thẻ `<form></form>`, thẻ này sẽ chứa một vài thuộc tính quan trọng và nội dung bên trong cặp thẻ đó là các thẻ `input` để khai báo các trường.
+
+**Các thuộc tính trong thẻ `<form>`**
+
+ - `action`: Đường dẫn đến một trang xử lý dữ liệu sau khi người dùng ấn nút gửi dữ liệu.
+ - `method`: Phương thức gửi dữ liệu
+ - `name`: Tên của form.
+
+**Các thuộc tính trong thẻ `<input>`**
+
+Các bạn có thể tham khảo tại [đây](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+
+<img src="http://i.imgur.com/iy6KGvj.png">
+<img src="http://i.imgur.com/R7HTObx.png">
 
 
 
