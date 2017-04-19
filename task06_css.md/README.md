@@ -151,3 +151,104 @@ Vùng chọn trong CSS rất linh hoạt, hầu như bạn có thể chọn bấ
 >*Vùng chọn có thể là tên thẻ HTML hoặc thuộc tính của HTML*
 -------------------------------------------------------
 
+**Các loại vùng chọn cơ bản**
+#####2.2.1. Vùng chọn dựa vào tên thẻ
+
+Đây là kiểu vùng chọn đơn giản nhất, đó là nó sẽ chọn toàn bộ các phần tử trên tài liệu HTML dựa vào tên thẻ có trong tài liệu rồi áp dụng CSS. Ví dụ muốn thay đổi sytle cho toàn bộ thẻ `h1` trong website thì sẽ có đoạn CSS sau với vùng chọn `h1`.
+
+<img src="http://i.imgur.com/Ds6S2qg.png">
+
+<img src="http://i.imgur.com/TgG9tsh.png">
+
+<img src="http://i.imgur.com/gUQ1cis.png">
+
+#####2.2.2. Vùng chọn dựa vào ID
+
+Vùng chọn dựa vào ID (tên định danh) nghĩa là bạn có thể chọn một phần tử cụ thể dựa vào giá trị cuẩ thuộc tính `id` trong thẻ HTML. Sỡ dĩ vùng chọn id được sử dụng để chọn một phần tử cụ thể là vì trên một trang tài liệu HTML thì mỗi phần tử phải mang một id riêng biệt không trùng nhau.
+
+Id được thiết lập dựa vào thuojc tính `id` trong thẻ HTML và bất cứ thẻ nào cũng có thể sử dụng id. Khi viết tên id vào CSS thì nó phải có dấu thăng `(#tên-id)` đặt trước tên id để phân biệt với các loại vùng chọn khác.
+
+<img src="http://i.imgur.com/udSuH7U.png">
+
+<img src="http://i.imgur.com/u9xHqWo.png">
+
+<img src="http://i.imgur.com/kAhDyWO.png">
+
+Ở ví dụ trên có hai thẻ `h1` nhưng nếu muốn viết CSS cho một thẻ `h1` cụ thể nào đó thì sẽ đặt id riêng cho phần tử mà mình cần viết CSS thay vì sử dụng vùng chọn dựa vào tên thẻ.
+
+Ngoài ra còn có một cách viết vùng chọn theo id khác là viết kèm theo tên thẻ đang sử dụng id đó như `h1#post-title`, lưu ý là phải viết sát nhau.
+
+Lưu ý rằng, một thẻ có thể sẽ chứa nhiều id khác nhau và mỗi tên id sẽ được cách nhau bởi khoảng trắng.
+
+```sh
+<h1 id="post-title sticky">Hello</h1>
+```
+
+#####2.2.3. Vùng chọn dựa vào Class
+
+Class (lớp) cũng rất được sử dụng phổ biến như id nhưng một điểm khác biệt của class là một class có thể được sử dụng cho nhiều phần tử trên một trang tài liệu HTML, còn id thì chỉ được sử dụng một lần suy nhất cho một phần tử.
+
+Class được khai báo trong một phần tử HTML bởi thuộc tính class như `<h1 class="tên-class">`. Khi khai báo vùng vhojn Class trong CSS, thie tên class phải được đặt sau dấu chấm `(tên-class)`.
+
+<img src="http://i.imgur.com/5gxTlFZ.png">
+
+<img src="http://i.imgur.com/2jw7ddg.png">
+
+<img src="http://i.imgur.com/yxERwmq.png">\
+
+#####2.2.4. Vùng chọn theo thứ cấp
+
+Đây là kiểu mà bạn sẽ sử dụng rất thường xuyên, đặc biệt là khi tiến hành viết CSS cho website đó là chọn phần tử thep thứ cấp. Nghĩa là với vùng chọn này, bạn có thẻ chọn một phần tử con trong một phần tử mẹ nào đó.
+
+```sh
+<ul id="menu">
+ <li>Menu 1</li>
+ <li>Menu 2</li>
+ <li>Menu 3</li>
+</ul>
+ 
+<ul id="social">
+ <li>Facebook</li>
+ <li>Twitter</li>
+ <li>Google+</li>
+</ul>
+```
+
+Ở đoạn trên, có hai danh sách với thẻ `<ul>` mang 2 id khác nhau. Bây giờ nếu muốn viết CSS cho các thẻ `<li>` trong cái danh sách `#menu` thì làm thế nào? Nếu viết vùng chọn dựa theo tên thẻ thì các thẻ `<li>` ở `#social` cũng sẽ được áp dụng. Lúc này, chúng ta sẽ sử dụng đến vùng chọn thứ cấp.
+
+Để chọn các thẻ `<li>` bên trong `#menu`, mình sẽ viết vùng chọn là `#menu li` thay vì chỉ viết `li` trong CSS. Lúc này CSS sẽ hiểu rằng chúng ta muốn chọn tất cả các thẻ `<li>` nằm bên trong phần tử mang `#menu`.
+
+<img src="http://i.imgur.com/kf3sH0R.png">
+
+<img src="http://i.imgur.com/SHibUB0.png">
+
+<img src="http://i.imgur.com/qpCx9Fx.png">
+
+#####Vùng chọn theo thứ cấp liền nhau
+
+Đây cũng là một kiểu vùng chọn dựa theo thứ cấp, cũng giúp bạn chọn các phần tử bên trong một phần tử nào đấy nhưng nó sẽ chỉ áp dụng cho các phần từ nằm dưới nó một bật.
+
+```sh
+<nav id="menu">
+<ul>
+<li>Menu 1
+<ul>
+<li>Menu 1.a</li>
+<li>Menu 1.b</li>
+</ul>
+</li>
+<li>Menu 2</li>
+<li>Menu 3</li>
+</ul>
+</nav>
+```
+
+Nếu muốn viết CSS cho các thẻ `<li>` của Menu 1.a, Menu 1.b thì sẽ đặt vùng chọn là `#menu ul ul > li`. Nếu diễn giải bằng chữ thì nó sẽ chọn thẻ `<li>` nằm trong thẻ `<ul>` ở bật thứ hai và thẻ `<ul>` đó nằm trong id #menu.
+
+<img src="http://i.imgur.com/QeShIui.png">
+
+<img src="http://i.imgur.com/zekOE9z.png">
+
+<img src="http://i.imgur.com/fw0eFMe.png">
+
+Thường thì cách viết vùng chọn này bạn sẽ sử dụng khi tạo menu đổ xuống trong website.
