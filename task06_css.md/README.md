@@ -137,3 +137,17 @@ Ví dụ bạn có thể nhúng một tập tin demo.css vào trong tập tin st
 @import "demo.css";
 ```
 
+##2.2. Vùng chọn và các kiểu vùng chọn cơ bản<a name="4"></a>
+
+Vùng chọn đóng vai trò rất quan trọng khi viết CSS, bởi khi bạn sử dụng vùng chọn sai thì điều đó có nghĩa là các quy tắc CSS sẽ không được thực thi hoặc thực thi không đúng chỗ. Việc nẵm rõ quy tắc sử dụng vùng chọn là kỹ thuật quan trọng đầu tiên khi bạn sử dụng CSS.
+
+Vùng chọn trong CSS rất linh hoạt, hầu như bạn có thể chọn bất cứ cái gì từ thẻ `<body>` đi sâu vào các thẻ bên trong nó.
+
+----------------------------------------
+>**Vùng chọn là gì?**
+>
+>Trong CSS, vùng chọn nghĩa là khu vực mà bạn muốn nó sẽ được áp dụng các quy tắc CSS mà bạn muốn chỉ định cho nó. Ví dụ bạn muốn tăng kích thước font chữ của các thẻ h1 thì vùng chọn của bạn sẽ là h1.
+>
+>*Vùng chọn có thể là tên thẻ HTML hoặc thuộc tính của HTML*
+-------------------------------------------------------
+
