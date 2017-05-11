@@ -499,4 +499,331 @@ font-size: 16px;
 
 Để dễ dàng hơn để sau này khi tìm hiểu về các kỹ thuật nâng cao, thì việc bạn cần làm bây giờ là nên hiểu thế nào là `Block`, thế nào là `Inline`. Đây là hai thuật ngữ rất thường sử dụng trong CSS.
 
+**Block là gì?**
+
+Phần tử khối (Block Elements) là thuật ngữ chỉ chung các thẻ HTML có chức năng tạo một khu vực hay nói dễ nghe xíu là một khối. Khối này có nghĩa là một thẻ khi mà bạn khai báo thì nó sẽ được hiển thị ở mỗi dòng riêng biệt bao gồm các nội dung nằm bên trong. Ở các bài học HTML cơ bản bạn có thể đã biết qua một số thẻ block cơ bản như `<p>`, `<ul>`, `<ol>`, `<h1>`,…
+
+**Inline là gì?**
+
+Phần tử nội dòng (Inline Elements) là thuật ngữ chỉ chung các thẻ HTML khi mà khai báo vào nội dung thì nó vẫn sẽ nằm chung một dòng với các văn bản khác. Một số thẻ inline rất hay dùng đó là `<b>`, `<strong>`, `<i>`, `<u>`,…và đặc biệt là `<span>` nếu bạn cần gộp nhóm các phần tử nào đó mà không ảnh hưởng đến các văn bản chung một hàng, thẻ `<span>` này có ý nghĩa và cách sử dụng giống như `<div>` nhưng nó được dùng trong inline.
+
+<img src="http://i.imgur.com/r3oqgBY.png">
+
+<img src="http://i.imgur.com/NxcQmM0.png">
+
+####2.7. Thẻ div và vai trò khi tạo bố cục<a name="9"></a>
+
+**Thẻ `div` là gì?**
+
+Đây là cái thẻ mà nó là chữ viết tắt của division (nghĩa là khu trong tiếng Việt theo từ điển kỹ thuật chung) được sử dụng để tạo ra một khu vực kiểu block nào đó trên một website, hay bạn có thể hiểu là gom nhóm tập hợp các phần tử trên website vào một khu vực với thẻ `<div>`.
+
+<img src="http://i.imgur.com/jBWfvoQ.png">
+
+Thường thì một website sẽ có 4 phần chính là header (hiển thị banner, logo), content (hiển thị nội dung), sidebar (cột bên cạnh nội dung) và footer (khu vực chân website). Vậy thì bây giờ mình có thể tạo ra 4 thẻ `<div>` với 4 id khác nhau nhằm chia khu vực ra. Trong mỗi khu vực mình có thể thêm nội dung riêng cho nó vào, ví dụ:
+
+<img src="http://i.imgur.com/Wv5Hz6N.png">
+
+<img src="http://i.imgur.com/y0gBkIW.png">
+
+####2.8. Kỹ thuật Box Model cơ bản<a name="10"></a>
+
+**Box Model** là một kỹ thuật cơ bản nhất trong CSS Layout và được sử dụng để bạn mô tả về khoảng cách mà mỗi phần tử trên website được sở hữu, hay nói cách khác là kỹ thuật tinh chỉnh khoảng cách hiển thị cho mỗi phần tử trên website.
+
+*Kỹ thuật Box Model trong CSS bao gồm 4 phần quan trọng đó là:*
+
+ + **Margin**: Khoảng cách tính từ bên ngoài của phần tử.
+ + **Border**: Đường viền của phần tử.
+ + **Padding**: Khoảng cacsch tính từ bên trong của phần tử.
+ + **Content**: Nội dung trong phần tử.
+
+<img src="http://i.imgur.com/J4G502D.png">
+
+Và trong 4 thành phần trên thì phần content chúng ta sẽ không có thuộc tính CSS nào đại diện cả vì nó là nội dung trong phần tử. Còn 3 phần còn lại thì sẽ có các thuộc tính CSS đại diện như sau:
+
+```sh
+margin: top right bottom left;
+ 
+border: top right bottom left;
+ 
+padding: top right bottom left;
+```
+
+**Padding**
+
+Padding nghĩa là chúng ta sẽ thiết lập khoảng cách được tính từ phần Content trở ra viền của phần tử, đơn giản vậy thôi. Padding được khai báo trong CSS bởi thuộc tính `padding` với giá trị theo tuần tự top right bottom left (trên > phải > dưới > trái) và giá trị là số kèm theo đơn vị đo lường.
+
+<img src="http://i.imgur.com/rs229Ra.png">
+
+<img src="http://i.imgur.com/HtPghjd.png">
+
+<img src="http://i.imgur.com/eP5qcGk.png">
+
+Ngoài thuộc tính padding thì thuộc tính này còn có 4 thuộc tính con khác đó là `padding-top`, `padding-bottom`, `padding-left` và `padding-right` và mỗi thuộc tính là để thiết lập giá trị cho từng mặt cụ thể.
+
+**Border**
+
+Border nghĩa là thuộc tính để bạn tạo viền cho phần tử và nó sẽ được khai báo bằng thuộc tính `border` trong CSS.
+
+Thuộc tính border này bạn sẽ viết theo cấu trúc như sau:
+
+```sh
+border: [size] [type] [color];
+```
+
+Trong border có hỗ trợ một số type như `solid`, `dotted`, `double`, `groove`, `ridge`, `inset` và `outset`.
+
+Giống như các thẻ trong Box Model khác, border cũng có các thẻ con là `border-top`, `border-right`, `border-bottom` và `border-left`.
+
+**Margin**
+
+Trong khi Padding có nhiệm vụ tạo khoảng cách giữa phần Content với Border thì Margin sẽ có tác dụng tạo khoảng cách từ Border trở ra ngoài, nói dễ hiểu thì nó sẽ giúp bạn tinh chỉnh khoảng cách giữa các phần tử với nhau.
+
+<img src="http://imgur.com/LZYwxml">
+
+<img src="http://i.imgur.com/pR0oYaF.png">
+
+<img src="[Imgur](http://i.imgur.com/vdAC8xG.png)">
+
+Và nó cũng có một số thuộc tính con là `margin-top`, `margin-right`, `margin-bottom` và `margin-left`.
+
+####2.9. Tính toán lại kích thước của box với box-sizing<a name="11"></a>
+
+Trong CSS thì hiện tại có tất cả 6 thuộc tính để bạn tùy biến chiều rộng và chiều cao của phần tử bao gồm:
+
+| Tên thuộc tính | Mô tả | Các kiểu giá trị |
+|----------------|-------|------------------|
+| Height | Thiết lập chiều cao của một phần tử | auto, lengh, %, inherit |
+| Max-height | Thiết lập chiều cao tối đa của một phần tử | none, length, %, inherit |
+| Max-width | Thiết lập chiều rộng tối đa của một phần tử | none, length, %, inherit |
+| Min-height | Thiết lập chiều cao tối thiểu của một phần tử | length, %, inherit |
+| Min-width | Thiết lập chiều rộng tối thiểu của một phần tử | length, %, inherit |
+| Width | Thiết lập chiều rộng của phần tử | auto, lengh, %, inherit |
+
+Ở cột các kiểu giá trị, `length` nghĩa là kiểu giá trị kèm đơn vị như `px`, `pt`, `em`, `rem` và `%`, `none` là bỏ thiết lập, `auto` là tự động tính dựa theo chiều còn lại và `inherit` là thừa kế giá trị đã thiết lập trước đó cho thuộc tính này.
+
+Và xin lưu ý thêm là bạn chỉ có thể thiết lập kích thước với các phần tử Block, Table và các đối tượng (hình ảnh, video, flash,…) chứ không thể thiết lập cho các phần tử Inline.
+
+Đối với các thuộc tính dạng `min-*`, `max-*` thì nghĩa là nó sẽ căn độ dài của phần tử dựa vào các nội dung bên trong nhưng sẽ có kích thước tối thiểu/tối đa được phép sử dụng. Ví dụ bạn có phần `#content`, bên trong `#content` bạn có phần `#post` và thiết lập chiều rộng cho `#post` là 500px. Thì nếu bạn đặt thuộc tính `max-width` cho `#content` là 400px thì cái thằng `#post` nó cũng chỉ giãn được tối đa là 400px chứ không thể hơn.
+
+**Box-sizing**
+
+Nếu bây giờ bạn muốn làm cho phần tử của mình phải giữ nguyên kích thước mặc dù có cộng thêm padding và border thì sẽ cần phải dùng đến thuộc tính box-sizing. box-sizing là một thuộc tính sẽ giúp bạn có thể tính toán và làm chủ được kích thước của một phần tử dựa vào thuộc tính width và height đã được thiết lập bên trong. Hay nói cách khác, là bạn sẽ muốn thuộc tính `width` và `height` là kích thước đã bao gồm border và padding.
+
+`box-sizing` là một thuộc tính trong CSS3 nên khi viết bạn phải viết thành 3 lần với các tiền tố khác nhau, ví dụ:
+
+```sh
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+```
+
+Trong đó, nếu viết không có tiền tố là dành cho trình duyệt IE8, Opera 7, Firefox và Google chrome bản mới. `-webkit` là dành cho Google Chrome bản cũ và `-moz` là dành cho Firefox bản cũ.
+
+*Các giá trị của box-sizing*
+
+Hiện tại `box-sizing` có hỗ trợ một số giá trị như sau:
+
+ + `content-box`: Giá trị mặc định, nghĩa là giá trị width và height chỉ áp dụng cho khu vực nội dung bên trong, không bao gồm padding, border và margin.
+ + `border-box`: Khi thiết lập giá trị này, thì width và heigh sẽ bao gồm cho cả phần nội dung, padding và border nhưng không bao gồm margin.
+ + `padding-box`: Với giá trị này thì width và height chỉ bao gồm cho phần nội dung và padding, không bao gồm border và margin. (Chỉ có tác dụng với trình duyệt Firefox)
+
+
+####2.10. Thêm nền cho block<a name="12"></a>
+
+**Màu nền với background-color**
+
+Nếu bạn muốn thiết lập màu nền bằng CSS thì có thể sử dụng thuộc tính `background-color` và giá trị của nó là tên màu, hoặc mã màu HEX/RBG.
+
+<img src="http://i.imgur.com/kdJpXwh.png">
+
+<img src="http://i.imgur.com/RgLHV6Y.png">
+
+**Ảnh nền với background-image**
+
+Đối với thuộc tính thêm ảnh nền thì chúng ta sẽ sử dụng `background-image` và nó còn có thêm khá nhiều thuộc tính khác nữa kèm theo.
+
+Ngoài ra, bạn có thể thêm nhiều ảnh nền khác nhau trên cùng một block bằng cách sử dụng nhiều giá trị `url()` và các giá trị phải được cách nhau bởi dấu phẩy. Ví dụ:
+
+```sh
+background-image: url('ảnh 1'), url('ảnh 2');
+```
+
+**Tùy chỉnh lặp lại ảnh nền với background-repeat**
+
+Mặc định khi sử dụng ảnh nền, thì hình ảnh sẽ được lặp đi lặp lại theo cả chiều ngang và chiều dọc cho đến khi ảnh nền lấp toàn bộ phần tử. Nhưng bạn cũng có thể tùy chỉnh lại việc lặp ảnh nền thông qua thuộc tính `background-repeat`, nó hỗ trợ các giá trị như sau:
+
+ + `no-rêpat`: Không lặp.
+ + `repeat-x`: Lặp theo chiều ngang.
+ + `repeat-y`: Lặp theo chiều dọc.
+ + `space`: Lặp đều theo chiều ngang và chiều dọc, ảnh nền sẽ cách nhau bằng khoảng trắng.
+ + `round`: Chưa hiểu lắm nên không giải thích.
+ + `repeat`: Mặc định.
+
+**Đổi vị trí ảnh nền với background-position**
+
+Đối với các tấm ảnh nền cỡ nhỏ hoặc dùng background-size để sửa lại kích thước thì có thể bạn sẽ cần thay đổi vị trí hiển thị của ảnh nền đó, và bạn có thể dùng thuộc tính background-position này. Nó có một số giá trị như sau:
+
+ + `top`: hiển thị ở trên đầu phần tử.
+ + `bottom`: hiển thị bên dưới phần tử.
+ + `left`: hiển thị bên trái phần tử.
+ + `right`: hiển thị bên phải phần tử.
+ + `center`: hiển thị chính giữa phần tử.
+ + `y-x`: tùy biến vị trí hiển thị theo tọa độ, giá trị đứng trước là y và đứng sau là x. Ví dụ: `15px` `10px`.
+
+Đối với thuộc tính này thì bạn có thể viết tối đa cùng lúc hai giá trị. Ví dụ bạn muốn ảnh của bạn sẽ nằm bên phải phía trên phần tử thì sẽ có giá trị là `left top`. Bạn cũng có thể thiết lập giá trị cho nhiều ảnh nền cùng lúc kiểu `left top`, `top center`.
+
+####2.11. Float và Clear Float<a name="13"></a>
+
+**Chia cột trong CSS**
+
+Việc chia cột trong CSS là việc bạn thiết lập những phần tử con trong một phần tử mẹ nằm trên cùng một hàng. Ví dụ, mình muốn phần nội dung website của mình có hai cột thì mình sẽ tạo ra 3 cái `<div>`, một cái `<div>` mình gọi nó là container hoặc phần tử mẹ, hai cái `<div>` còn lại mình gọi là column (cột).
+
+```sh
+<div id="content" class="container">
+ 
+   <div id="post">Nội dung của #post</div>
+ 
+   <div id="sidebar">Nội dung của #sidebar</div>
+ 
+</div>
+```
+
+**Các bước chia cột trong CSS**
+
+Trước tiên, chúng ta sẽ tiến hành thiết lập chiều rộng cho class `container`, nên thêm một cái border để tí nữa bạn sẽ hiểu clear float là thế nào:
+
+```sh
+/*==Thiết lập container==*/
+ 
+.container {
+   width: 960px;
+   border: 1px solid #333;
+   padding: 10px;
+}
+```
+
+Tiếp tục, chúng ta thiết lập chiều rộng của #post và mình sẽ muốn cột #post sẽ chiếm 660px, đồng thời thêm màu sắc cho hai thằng này để dễ nhìn một xíu.
+
+```sh
+/*==cột #post==*/
+#post {
+   width: 660px;
+   height: 150px;
+   background: #e8e8e8;
+}
+```
+
+Bây giờ mình muốn cái #post nó sẽ nằm bên trái của `#sidebar`, nên mình sẽ gắn thêm cho `#post` một thuộc tính float với giá trị là `left`.
+
+```sh
+float: left;
+```
+
+Đồng thời, mình muốn `#sidebar` sẽ nhảy qua bên phải nên mình sẽ có thuộc tính `float` cho nó với giá trị là `right`.
+
+```sh
+float: right;
+```
+
+**Clear float**
+
+Khi chúng ta sử dụng thuộc tính float thì nghĩa là sẽ thiết lập cho một phần tử được đẩy sang trái hoặc phải và cho phép các phần tử gần đó có thể hiển thị bao bọc xung quanh nó.
+
+Do vậy khi tiến hành float các phần tử, việc bạn nên làm là phải tạo ra điểm kết thúc cho việc float này, tức là bạn sẽ muốn nó bắt đầu không float ở đâu nữa. Gọi theo thuật ngữ CSS là clear float.
+
+Về clear float thì có rất nhiều cách, tùy theo trường hợp mà chúng ta sẽ sử dụng cách phù hợp.
+
+*Cách 1: Sử dụng thẻ div trống*
+
+Cách này khá phổ biến từ rất lâu rồi, đó là chúng ta sẽ tạo ra một class riêng cho việc clear float và khai báo thêm một thẻ `<div>`` nữa với class này rồi đặt nó bên dưới của cột cuối cùng.
+
+Bây giờ mình sẽ viết một đoạn CSS cho class tên là `.clear` như sau:
+
+```sh
+.clear {clear:both}
+```
+
+Thuộc tính clear này nghĩa là thiết lập không cho phép các phần tử khác float xuống nó, nó có các giá trị là `left` `right` `both` và `none`. Và bạn chỉ nên dùng giá trị both thôi để clear cả 2 bên.
+
+Bây giờ, mình sẽ khai báo một thẻ `<div>` với class là clear và đặt nó ngay bên dưới cái cột `#sidebar` (cột cuối cùng của hàng).
+
+```sh
+<div id="content" class="container">
+ 
+   <div id="post">Nội dung của #post</div>
+   <div id="sidebar">Nội dung của #sidebar</div>
+   <div class="clear"></div>
+ 
+</div>
+```
+
+*Cách 2: Sử dụng overflow*
+
+Cách này thì gọn lẹ hơn, không cần sửa HTML mà chỉ cần viết thêm `overflow: auto;` cho container là được.
+
+####2.12. Reset CSS là gì?<a name="14"></a>
+
+Khi viết CSS cho website, bạn nên đưa tất cả các giá trị của các phần tử trên website về bằng 0 hết và xóa một số định dạng có sẵn để khi cần chúng ta sẽ dùng CSS viết lại theo ý của mình để đảm bảo nó hiển thị tốt trên tất cả các trình duyệt. Việc làm này người ta gọi là Reset CSS.
+
+Nếu bạn muốn tự reset CSS đơn giản nhất thì hãy viết đoạn sau vào tập tin CSS là có thể đưa toàn bộ giá trị liên quan tới Box Model về 0.
+
+```sh
+* {
+ 
+padding: 0;
+ 
+margin: 0;
+ 
+border: none;
+ 
+}
+```
+
+Nhưng như vậy có vẻ không tối ưu cho lắm, thay vì reset CSS như vậy thì chúng ta sẽ dùng các bộ Reset CSS có sẵn mà nhiều designer/developer chuyên nghiệp thường sử dụng.
+
+**Một số bộ Reset CSS thông dụng**
+
+Bạn có thể sử dụng các bộ reset CSS thông dụng dưới đây để tiết kiệm thời gian và tối ưu hơn. Cách sử dụng là copy code bỏ vào đầu file CSS của bạn.
+
+[normalize.css](https://github.com/necolas/normalize.css/blob/master/normalize.css)
+
+Đây là bộ reset CSS thông dụng nhất hiện tại, phù hợp với cả HTML5 và CSS3. Đặc điểm của bộ này là sẽ điều chỉnh các phần tử trong website hiển thị phù hợp với tất cả các trình duyệt thông dụng, xóa bỏ toàn bộ margin và padding mặc định, có sẵn style cho các thẻ khá có ích như <sub>, <sup>, <code>,….Bạn có thể xem thêm các lý do nên sử dụng normalize.css tại [http://stackoverflow.com/a/8357635](http://stackoverflow.com/a/8357635).
+
+[Reset CSS 2.0 by Eric Meyer](http://meyerweb.com/eric/tools/css/reset/)
+
+Nếu bạn cần một đoạn reset CSS đưa toàn bộ các phần tử website về “thời đồ đá”, không có bất cứ một định dạng gì thì có thể sử dụng bộ này. Bộ reset CSS này thích hợp cho những ai muốn tự mình viết lại CSS cho toàn bộ các thành phần trong website, kể cả việc thiết lập kích thước chữ cho các thẻ tiêu đề.
+
+####2.15. Trang trí danh sách với list-style<a name="17"></a>
+
+Mặc định các thẻ list (danh sách) trong HTML sẽ được hiển thị dựa trên quy tắt hiển thị ở các trình duyệt cho các thẻ đó. Ví dụ khi bạn sử dụng `<ol>` thì sẽ hiển thị danh sách có đánh số, thẻ `<ul>` sẽ hiển thị dấu chấm tròn cho mỗi mục con bên trong. Nhưng với CSS, bạn có thể tùy biến lại được cách hiển thị của nó, chẳng hạn như bạn muốn dùng hình ảnh thay cho dấu chấm tròn ở thẻ `<ul>` chẳng hạn.
+
+Và để tùy biến danh sách trong CSS, chúng ta sẽ sử dụng thuộc tính list-style để làm.
+
+**Quy tắc viết thuộc tính list-style**
+
+Ở thuộc tính này, bạn có thể viết giá trị theo thứ tự như sau:
+
+```sh
+list-style: <list-style-type> <list-style-position> <list-style-image>;
+```
+
+ + `list-style-type`: Thay đổi loại hiển thị của danh sách.
+ + `list-style-position`: Tùy chỉnh vị trí hiển thị các dấu đầu dòng của mục con nằm bên trong danh sách hoặc bên ngoài danh sách.
+ + `list-style-image`: Sử dụng hình ảnh làm các dấu đầu dòng cho danh sách.
+
+####2.16. Thuộc tính display<a name="18"></a>
+
+Làm thế nào để chuyển một phần tử inline sang block và ngược lại? Giải pháp trong CSS đó là sẽ sử dụng thuộc tính `display`.
+
+Thuộc tính `display` có một số giá trị cơ bản như:
+
+ + `inline`: Chuyển phần tử về hiển thị trên cùng một hàng.
+ + `inline-block`: Chuyển phần tử về hiển thị trên cùng một hàng nhưng nó vẫn thừa hưởng các đặc tính của block như có thể tùy chỉnh kích thước, thêm background,…
+ + `block`: Chuyển phần tử về hiển thị kiểu block, sở hữu một hàng riêng.
+ + `list-item`: Chuyển phần tử về hiển thị như một mục danh sách, để có thể sử dụng thuộc tính list-style.
+ + `none`: Đơn giản là ẩn phần tử đó đi không cho hiển thị nữa, nó cũng sẽ ẩn luôn toàn bộ các khoảng trống mà nó sở hữu. Nếu bạn muốn ẩn đi mà vẫn đề lại “dấu vết” thì có thể sử dụng visibility: hidden.
+
+<img src="http://i.imgur.com/P46Ts08.png">
+
+<img src="http://i.imgur.com/UA8u8Kc.png">
 
