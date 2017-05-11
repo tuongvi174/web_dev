@@ -827,3 +827,717 @@ Thuộc tính `display` có một số giá trị cơ bản như:
 
 <img src="http://i.imgur.com/UA8u8Kc.png">
 
+####2.17. Thuộc tính position<a name="19"></a>
+
+Nếu như bạn muốn di chuyển một phần tử nào đó mà không ảnh hưởng đến bố cục của website thì sẽ có một giải pháp đó là sử dụng thuộc tính `position`. Cái tên nói lên tất cả, `position` là thuộc tính giúp bạn tùy chỉnh khu vực hiển thị cho phần tử và việc tùy chỉnh này không hề làm ảnh hưởng đến các phần tử khác.
+
+**Các giá trị của thuộc tính position**
+
+Hiện tại position hỗ trợ cho một số giá trị như sau:
+
+ + `relative`: Dùng để thiết lập một phần tử sử dụng các thuộc tính position mà không làm ảnh hưởng đến việc hiển thị ban đầu.
+ + `absolute`: Dùng để thiết lập vị trí của một phần tử nhưng nó sẽ luôn nằm trong một phần tử mẹ đang là relative.
+ + `fixed`: Hiển thị luôn đi theo trình duyệt khi cuộn trang.
+ + `static`: Đưa phần tử về hiển thị theo kiểu mặc định.
+
+Sau khi thiết lập một phần tử sử dụng position, chúng ta sẽ sử dụng thêm một số thuộc tính position để căn chỉnh vị trí của nó và giá trị là số kèm theo đơn vị, có 4 thuộc tính position là:
+
+ + `top`: Căn vị trí hiển thị của phần tử theo hướng từ trên xuống dưới. Giá trị càng cao thì phần tử càng thụt xuống dưới.
+ + `bottom`: Căn vị trí hiển thị của phần tử theo hướng từ dưới lên trên. Giá trị càng cao thì phần tử càng hiển thị lên cao.
+ + `left`: Căn vị trí hiển thị từ trái sang phải. Giá trị càng cao thì phần tử sẽ càng thụt về bên phải.
+ + `right`: Căn vị trí hiển thị từ phải sang trái. Giá trị càng cao thì phần tử sẽ càng thụ về bên trái.
+
+####2.18. Pseudo-classes cơ bản<a name="20"></a>
+
+**Pseudo Class trong CSS là gì?**
+
+Pseudo Class trong CSS được sử dụng để viết CSS cho một trạng thái nào đó của một phần tử. Ví dụ viết CSS đổi màu các liên kết khi rê chuột vào, đổi thuộc tính một phần tử khi nhấp vào,….Các pseudo class được khai báo tại vùng chọn, đặt đằng sau vùng chọn và có dấu hai chấm (:) ngăn cách. Ví dụ: `#link:hover` (vùng chọn của #link khi rê chuột vào).
+
+<img src="http://i.imgur.com/TVZpReZ.png">
+
+<img src="http://i.imgur.com/gkPHTFh.png">
+
+####2.19. Cách làm menu ngang dropdown cơ bản<a name="21"></a>
+
+**Cách tạo menu ngang cơ bản**
+
+Để tạo menu ngang, chúng ta sẽ sử dụng thẻ `<ul>` để tạo khu vực menu và `<li>` để tạo từng mục trong menu đó. Do vậy, trước tiên chúng ta có đoạn cấu trúc menu bằng HTML như sau, mình sẽ đặt menu vào trong một cái thẻ `<div>` với id là `#menu`.
+
+```sh
+<div id="menu">
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Diễn đàn</a></li>
+    <li><a href="#">Tin tức</a></li>
+    <li><a href="#">Hỏi đáp</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</div>
+```
+
+Kế tiếp là ta có thêm một đoạn CSS sau để reset CSS cho dễ viết CSS về sau, và thêm một số style cho toàn trang web như dùng font chữ có chân chẳng hạn.
+
+```sh
+/*==Reset CSS==*/
+* {
+  margin: 0;
+  padding: 0;
+}
+ 
+/*==Style cơ bản cho website==*/
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+```
+
+Bây giờ chúng ta sẽ tiến hành xử lý cái menu.
+
+Trước tiên là phần bao bọc menu (tức là thẻ `<ul>` trong `#menu`), chúng ta sẽ sử dụng thuộc tính `list-style-type` để xóa các dấu đầu dòng, thêm màu nền và đưa văn bản bên trong ra giữa.
+
+```sh
+/*==Style cho menu===*/
+#menu ul {
+  background: #1F568B;
+  list-style-type: none;
+  text-align: center;
+}
+```
+
+<img src="http://i.imgur.com/siqQxqL.png">
+
+Kế tiếp, chúng ta sẽ muốn cho các mục con nằm dàng ngang nên sẽ dùng gì nè? Vâng, bạn có thể sử dụng float: left cho tất cả thẻ `<li>` hoặc đưa về kiểu hiển thị `inline-block`.
+
+*Cách 1: Kiểu inline-block*
+
+```sh
+#menu li {
+  color: #f1f1f1;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -5px;
+}
+```
+
+*Cách 2: Kiểu float*
+
+```sh
+#menu li {
+  color: #f1f1f1;
+  float: left;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+}
+```
+
+Sở dĩ kiểu float mình không có `margin-left: -5px` là vì cái 5px kia là kiểu `display`: inline-block nó tự sinh ra nên phải xóa nó đi bằng cách này.
+
+Nếu float thì nên thêm một vài thuộc tính như sau cho `#menu ul`.
+
+```sh
+#menu ul {
+  background: #1F568B;
+  list-style-type: none;
+  overflow: hidden;
+  width: 100%;
+}
+```
+
+<img src="http://i.imgur.com/EnOzEIK.png">
+
+Và cuối cùng là thêm style cho các thẻ `<a>` bên trong, quan trọng nhất là sẽ đưa kiểu hiển thị cho các thẻ này thành block để nó được phủ kín cái `#menu ul`.
+```sh
+#menu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+#menu a:hover {
+  background: #F1F1F1;
+  color: #333;
+}
+```
+
+Kết quả khi hoàn thành:
+
+<img src="http://i.imgur.com/U22M04R.png">
+
+**Cách tạo menu dropdown đơn giản**
+
+Bây giờ ta cũng có một menu giống như cái ở trên, nhưng mình muốn ở phần Tin tức sẽ có thêm một vài menu con nữa, như vậy mình sẽ đặt thêm một thẻ `<ul>` lồng bên trong item Tin tức và thẻ `<ul>` này sẽ mang class `sub-menu` để sau này dễ tái sử dụng.
+
+```sh
+<div id="menu">
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Diễn đàn</a></li>
+    <li><a href="#">Tin tức</a>
+      <ul class="sub-menu">
+        <li><a href="#">WordPress</a></li>
+        <li><a href="#"><a href="https://thachpham.com/category/seo" data-wpel-link="internal">SEO</a></a></li>
+        <li><a href="#">Hosting</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Hỏi đáp</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</div>
+```
+
+Và đoạn CSS y hệt bên trên để làm cái menu đơn giản trước.
+
+```sh
+/*==Reset CSS==*/
+* {
+  margin: 0;
+  padding: 0;
+}
+ 
+/*==Style cơ bản cho website==*/
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+ 
+/*==Style cho menu===*/
+#menu ul {
+  background: #1F568B;
+  list-style-type: none;
+  text-align: center;
+}
+#menu li {
+  color: #f1f1f1;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -5px;
+}
+#menu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+#menu a:hover {
+  background: #F1F1F1;
+  color: #333;
+}
+```
+
+<img src="http://i.imgur.com/2El9ONm.png">
+
+Trước tiên, chúng ta cần phải cho `.sub-menu` ẩn đi.
+
+```sh
+/*==Dropdown Menu==*/
+.sub-menu li {
+  display: none;
+}
+```
+
+Bây giờ, chúng ta muốn tùy biến lại cái `.sub-menu` sẽ hiển thị (nếu có hiển thị) nằm bên ngoài cái phần `#menu ul` để nó không bị đẩy lên như vậy. Như bài trước ta đã học rồi, để tùy biến vị trí một phần tử mà không ảnh hưởng đến các phần tử khác thì sẽ sử dụng thuộc tính `position`. Nhưng mà chúng ta muốn cái `.sub-menu` nó phải nằm gần menu mẹ, vậy thì chúng ta phải thiết lập `#menu li` thành kiểu `relative` vì `#menu li` là các item cấp lớn nhất, mình gọi đó là menu mẹ.
+
+```sh
+#menu li {
+ position: relative;
+}
+```
+
+Và tiếp theo là cho cái `.sub-menu` thành kiểu `absolute` để nó luôn luôn nằm trong phạm vi menu mẹ, tức là nằm trong `#menu li` ấy. Chúng ta viết lại đoạn `.sub-menu` như sau:
+
+```sh
+.sub-menu {
+ display: none;
+ position: absolute;
+}
+```
+
+Và cuối cùng, là chúng ta sẽ cho thằng `.sub-menu` sẽ hiển thị ra khi ta rê chuột vào menu mẹ, như vậy ta sẽ kết hợp với một pseudo-class là `:hover` để làm việc này. Để hiển thị ra chúng ta gán `display: block` cho nó.
+
+```sh
+#menu li:hover .sub-menu {
+ display: block;
+}
+```
+
+Đoạn `#menu li:hover .sub-menu` nghĩa là khi chúng ta rê chuột vào `#menu li` thì nó sẽ thực hiện các thay đổi cho `.sub-menu`.
+
+Thêm một chút CSS cho cái menu con bên trong để nó xóa cái margin không cần thiết đi.
+
+```sh
+.sub-menu li {
+ margin-left: 0 !important;
+}
+```
+
+<img src="http://i.imgur.com/NfY6jCv.png">
+
+####2.20. Làm menu dọc có dropdown đơn giản<a name="22"></a>
+
+Về cách tạo menu dọc thì chúng ta có thể làm giống như tạo menu ngang, đó là tạo một cái danh sách với `<ul>` rồi xóa `list-style-type` cho các thẻ `<li>` bên trong là được chứ không cần làm nhiều bước như khi làm menu ngang.
+
+**Tạo menu dọc cơ bản**
+
+Ban đầu mình sẽ có một danh sách menu như sau:
+
+```sh
+<div id="menu">
+ <ul>
+ <li><a href="#">Trang chủ</a></li>
+ <li><a href="#">Tin tức</a></li>
+ <li><a href="#">Sản phẩm</a></li>
+ <li><a href="#">Liên hệ</a></li>
+ </ul>
+</div
+```
+
+Trước tiên là thêm CSS cho `#menu ul` để thêm màu nền này nọ một xíu cho đẹp, và nhất là bỏ đi mấy cái dấu chấm đầu dòng của danh sách..
+
+```sh
+#menu ul {
+  background: #8AD385;
+  width: 250px;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+}
+```
+
+Sau đó viết CSS cho các thẻ `<li>` để thêm chiều cao cho nó với `height` và thêm `line-height` bằng với chiều cao để nó đứng giữa block.
+
+```sh
+#menu li {
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 1em;
+}
+```
+
+Cuối cùng là viết CSS cho thẻ a bên trong menu, chuyển nó qua thành block và thêm các style cần thiết, đồng thời tạo thêm hiệu ứng background khác khi rê chuột vào mục menu.
+
+```sh
+#menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+#menu li:hover {
+  background: #CDE2CD;
+}
+```
+
+<img src="http://i.imgur.com/CtTBEkD.png">
+
+**Tạo menu dọc có đổ xuống (dropdown)**
+
+Bây giờ bạn hãy làm lại cái menu đơn giản phía trên và bổ sung các menu con vào như thế này:
+
+```sh
+<div id="menu">
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Tin tức</a>
+      <ul class="sub-menu">
+        <li><a href="#">WordPress</a></li>
+        <li><a href="#"><a href="https://thachpham.com/category/seo" data-wpel-link="internal">SEO</a></a></li>
+        <li><a href="#">Hosting</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Sản phẩm</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</div>
+```
+
+Bây giờ bạn có thể thấy các menu con trong mục Tin tức bị lỗi hiển thị, nên chúng ta sẽ viết thêm CSS cho nó như sau.
+
+Trước tiên là bạn hãy đưa thằng `#menu` li về hiển thị kiểu `relative`.
+
+```sh
+#menu ul li {
+ position: relative;
+}
+```
+
+Và chuyển `#menu .sub-menu` (menu cấp 2) về dạng `absolute` rồi chỉnh vị trí hiển thị của nó thụt sang bên phải là 250px (bằng với chiều rộng menu), đồng thời đưa nó về sát mép top của phần tử mẹ.
+
+```sh
+#menu .sub-menu {
+ position: absolute;
+ left: 250px;
+ top: 0;
+}
+```
+
+<img src="http://i.imgur.com/xpZmkzE.png">
+
+Bây giờ chỉ cần viết thêm CSS để `.sub-menu` ẩn đi và hiện ra khi rê chuột vào `#menu li` có chứa `.sub-menu` nhé.
+
+```sh
+#menu .sub-menu {
+ position: absolute;
+ left: 250px;
+ top: 0;
+ display: none;
+}
+#menu li:hover .sub-menu {
+ display: block;
+}
+```
+
+<img src="http://i.imgur.com/7lioE1S.png">
+
+####2.21. Thiết kế giao diện đơn giản<a name="23"></a>
+
+Dưới đây là bài ví dụ mẫu:
+
+**Tài nguyên**
+
+Trước khi bắt đầu làm theo các hướng dẫn này thì bạn hãy tải về một số tài nguyên cần thiết dưới đây, nó bao gồm 4 bức ảnh và file normalize.css để reset CSS.
+
+[Tải starter resources](https://thachpham.com/wp-content/uploads/2015/04/hoc-css-basic-layout-starter-resources.zip)
+
+**Bắt đầu**
+
+Bây giờ bạn hãy tạo một thư mục riêng và copy file `normalize.css` và thư mục img vào. Sau đó tạo thêm file `index.html` (tập tin website) và `style.css` (chứa các CSS của website).
+
+Bây giờ hãy mở file `index.html` lên và bắt đầu viết HTML cho website nhé.
+
+Việc trước tiên bạn cần viết là hãy viết các thẻ đầu tiên nhất của website bằng HTML là khai báo loại tập tin, thẻ `<html>`, cặp `<head>` và cặp `<body>`.
+
+```sh
+<!DOCTYPE html>
+<html lang="vi">
+ <head>
+ 
+ </head>
+ <body>
+ 
+ </body>
+</html>
+```
+
+**Thêm thẻ khia báo thông tin**
+
+Như chúng ta đã học ở phần đầu rồi, chúng ta sẽ có các thẻ sau để khai báo thông tin cho tài liệu HTML tropng cặp thẻ `<head>`.
+
+```sh
+<head>
+<meta charset="utf-8" />
+<title>Thach Pham Blog</title>
+<meta name="description" content="Thực hành tạo layout bằng HTML và CSS cơ bản" />
+<meta name="author" content="ThachPham" />
+<meta name="keyword" content="hoc css,css co ban,css layout" />
+<link type="text/css" rel="stylesheet" href="style.css" />
+<link type="text/css" rel="stylesheet" href="normalize.css" />
+</head>
+```
+
+**Tạo khu vực trong website**
+
+```sh
+<body>
+        <div id="container">
+ 
+                <div id="menu">
+ 
+                </div><!--#menu-->
+ 
+                <div id="content">
+ 
+                        <div id="header">
+                                <div id="logo"></div>
+                                <div id="slogan"></div>
+                        </div><!--#header-->
+ 
+                        <div class="call-to-action">
+ 
+                        </div><!--.call-to-action-->
+ 
+                        <div class="row">
+                                <div id="box1" class="col"></div>
+                                <div id="box2" class="col"></div>
+                                <div id="box3" class="col"></div>
+                        </div>
+ 
+                </div><!--#content-->
+ 
+                <div id="footer">
+ 
+                </div><!--#footer-->
+ 
+        </div><!--#container-->
+</body>
+```
+
+**Viết nội dung cho từng phần**
+
+*Phần menu*
+
+```sh
+<div id="menu">
+  <ul>
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Dịch vụ</a></li>
+    <li><a href="#">Sản phẩm</a></li>
+    <li><a href="#">Tin tức</a></li>
+    <li><a href="#">Diễn đàn</a></li>
+    <li><a href="#">Liên hệ</a></li>
+  </ul>
+</div><!--END #menu-->
+```
+
+*Phần header*
+
+```sh
+<div id="header">
+  <div id="logo"><img src="img/tplogo2014.png" /></div>
+  <div id="slogan"><h3><a href="https://thachpham.com/series/html-co-ban" data-wpel-link="internal">Học HTML</a> và CSS cơ bản miễn phí</h3></div>
+</div><!--#header-->
+```
+
+*Phần .call-to-action*
+
+```sh
+<div class="call-to-action">
+ <h3>Bạn sẽ được học những gì?</h3>
+ 
+ <p>Nếu bạn là người mới tìm hiểu về website thì serie này sẽ giúp các bạn hình dung rõ hơn việc làm một giao diện website tĩnh bằng HTML và CSS vì tất cả giao diện website đều sử dụng HTML & CSS để lên bố cục cho giao diện, giúp bạn tự làm một giao diện website cho riêng mình.</p>
+</div><!--.call-to-action-->
+```
+
+*Phần row*
+
+```sh
+<div class="row">
+  <div id="box1" class="col">
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <img src="img/css-icon.png" alt="CSS" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis. Aliquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+  </div>
+  <div id="box2" class="col">
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <img src="img/url-icon.png" alt="URL" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis. Aliquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+  </div>
+  <div id="box3" class="col">
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <img src="img/html-icon.png" alt="HTML" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis. Aliquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id.</p>
+  </div>
+</div><!--.call-to-action-->
+```
+
+*Phần footer*
+
+```sh
+<div id="footer">
+  <p>Copyright &copy; 2015 - Serie học HTML & CSS cơ bản tại www.thachpham.com.</p>
+</div><!--#footer-->
+```
+
+**Viết CSS cho giao diện**
+
+```sh
+/*==Style cơ bản cho website==*/
+* {
+ box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+}
+body {
+ font-family: Helvetica,Arial,sans-serif;
+ font-size: 16px;
+ line-height: 1.254em;
+ margin: 0;
+ padding: 0;
+}
+a {
+ text-decoration: none;
+ color: #3B8BBA;
+}
+a:hover,
+a:visited {
+ color: #265778;
+}
+```
+
+**Chia khung cho website**
+
+```sh
+/*==Lên khung cho website==*/
+#container {
+ padding-left: 150px;
+ position: relative;
+ left: 0;
+ width: 100%;
+}
+#menu {
+ position: fixed;
+ height: 100%;
+ background-color: #191818;
+ width: 150px;
+ left: 0;
+}
+```
+
+**Viết CSS cho menu**
+
+```sh
+/*==Trang trí menu==*/
+#menu ul {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+}
+```
+
+Và thêm chiều cao cho từng mục bên trong menu.
+
+```sh
+#menu ul li {
+ line-height: 2.9em;
+ height: 2.9em;
+}
+```
+
+Tiếp đến là chuyển các thẻ liên kết về dạng block, thêm màu chữ và các style linh tinh.
+
+```sh
+#menu li a {
+ display: block;
+ color: #fff;
+ padding: 0 1em;
+ border-bottom: 1px solid #333;
+}
+```
+
+Cuối cùng là thêm style khi rê chuột vào từng menu.
+
+```sh
+#menu li:hover {
+ background-color: #454545;
+}
+```
+
+**Viết CSS chung cho content**
+
+```sh
+/*==Trang trí khung content==*/
+#content {
+ padding: 1em 8em;
+}
+#header,
+.call-to-action {
+ text-align: center;
+}
+```
+
+Thêm màu chữ.
+
+```sh
+/*==Trang trí header của content==*/
+#header{}
+#slogan {
+ color: #8997A0;
+ font-size: 0.8em;
+}
+```
+
+Tiếp theo là phần `.call-to-action`, mình sẽ thêm màu nền cho nó và cho một cái viền để nó nổi bật.
+
+```sh
+/*==Call to Action==*/
+.call-to-action {
+ padding: 1.5em 20%;
+ background: #EFEFEF;
+ border: 1px solid#E8E8E8;
+}
+```
+
+```sh
+/*==Chia cột phần content==*/
+.row {
+ overflow: auto;
+ margin: 1.5em auto;
+}
+.row .col {
+ float: left;
+ width: 31.3333%;
+ margin-right: 2.99%;
+}
+.row .col:last-child {
+ float: right;
+ margin-right: 0;
+}
+```
+
+**Viết CSS cho footer**
+
+```sh
+/*==Footer==*/
+#footer {
+ font-size: 85%;
+ border-top: 1px solid #E6E6E6;
+ color: #838383;
+ padding: 1em 3em;
+}
+```
+
+
+####2.22. CSS Framework là gì và cách sử dụng<a name="24"></a>
+
+**CSS Framework là gì?**
+
+CSS Framework ra đời như một công cụ hỗ trợ các designer thiết kế giao diện website nhanh chóng và đẹp mắt với thời gian ngắn nhất nhưng ít lỗi nhất. CSS Framework là một bộ mã nguồn CSS đã được viết một số chức năng nhất định và khai báo mỗi chức năng đó vào một class riêng, để người sử dụng sẽ dễ dàng áp dụng nó vào dự án của họ bằng cách thêm class của thành phần muốn sử dụng vào phần tử họ cần áp dụng lên, ví dụ như thêm style cho một nút bấm chẳng hạn.
+
+Hiện nay CSS thì có 2 loại chính đó là:
+
+ + *Grid System*: Khi bạn muốn tự mình viết CSS cho các thành phần bên trong website và chỉ muốn có sẵn một framework hỗ trợ chia cột nhanh gọn. Ưu điểm là nhẹ vì không có nhiều CSS.
+ + *CSS UI Framework*: Khi bạn muốn sử dụng framework như một công cụ hỗ trợ làm giao diện website từ A đến Z bao gồm có sẵn các CSS cho nút bấm, menu, form, chữ,….để bạn tập trung thời gian vào thiết kế layout tổng thể. Tuy nhiên các bộ UI này sẽ nặng hơn nhiều so với Grid System.
+
+####2.23. Tạo chuyển động với Transition<a name="25"></a>
+
+Cấu trúc khai báo `transition` như sau:
+
+```sh
+transition: [thuộc tính chuyển động] [thời gian chuyển động] [thời gian delay] [kiểu chuyển động];
+```
+
+Lưu ý rằng transition là thuộc tính CSS3 nên bạn cần nên khai báo thêm hai thuộc tính tương tự kèm hai tiền tố `-moz-` và `-webkit-` để nó hoạt động tốt trên mọi trình duyệt.
+
+####2.24. Thay đổi hình dạng đối tượng với Transform<a name="26"></a>
+
+Với transform, bạn có thể xoay, co giãn kích thước hoặc bóp nghiêng hình dạng một phần tử. Ngoài ra nó cũng còn một số tính năng khác cũng liên quan đến việc làm thay đổi hình dạng.
+
+```sh
+transform: function( value );
+-moz-transform: function( value );
+-webkit-transform: function( value );
+```
+
+Trong đó, `function()` là tên hàm làm thay đổi hình dạng và value là giá trị của hàm, mỗi hàm có thể sẽ có cách viết giá trị khác nhau.
+
+**Xoay - `rotate()`**
+
+Với hàm `rotate()` bạn có thể thiết lập một đối tượng bị xoay theo độ góc. Ở hàm này bạn có thể thiết lập giá trị kiểu `[n]deg` (thiết lập giá trị góc, tức là độ) hoặc `[n]turn` (1 turn = 360 độ). Bạn hãy xem ví dụ live dưới đây để hiểu hơn.
+
+**Co giãn - `scale()`**
+
+Với hàm `scale()` bạn có thể thiết lập co giãn kích thước của một phần tử dựa vào trục y (trục thẳng đứng) và trục x (trục ngang), và hàm này bạn sẽ thiết lập là `scale(X)` hoặc `scaleX()` và `scaleY()`.
+
+**Kéo nghiêng - `skew()`**
+
+Bạn có thể kéo một đối tượng nghiêng dựa theo trục Y và trục X với hàm `skewX()` và `skewY()`, giá trị bên trong là số `[n]deg` tương tự `rotate()`.
+
+**Tùy chỉnh tâm hình dạng với transform-origin**
+
+Một thuộc tính thú vị nữa mà bạn có thể dùng kèm theo transform đó là `transform-origin`, nó sẽ cho phép bạn dịch chuyển phần tử dựa vào kiểu thay đổi hình dạng ở transform. Nói nghe có vẻ khó hiểu, ví dụ bạn sử dụng `rotate()` để xoay ảnh và khi dùng thêm `transform-origin` thì nó sẽ cho phép bạn chỉnh độ lớn của vòng xoay tính từ tâm phần tử. Thuộc tính `transform-origin` phải được dùng kèm với `transform` và có thể áp dụng cho bất kỳ hàm nào.
+
+Thuộc tính `transform-origin` có hai giá trị là X (phương thẳng đứng) và Y (phương nằm ngang) và giá trị nó sẽ dựa vào kích thước của phần tử.
